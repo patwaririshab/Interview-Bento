@@ -13,7 +13,7 @@ public class main {
 
         ex2 secondExercise = new ex2(inputList);
 
-        System.out.println(secondExercise.find_anagrams());
+        secondExercise.find_anagrams();
     }
 
 }
