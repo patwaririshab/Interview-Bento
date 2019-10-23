@@ -22,7 +22,7 @@ public class ex2 {
     }
 
     public void find_anagrams(){
-        //For each word in inputlist, check for all anagrams and add them to outputlist by length
+        //For each word in inputlist, check if anagram and print
         for(String word : inputList){
 
             for(String word2 : inputList){
