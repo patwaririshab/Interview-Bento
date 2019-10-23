@@ -10,45 +10,30 @@ public class ex2 {
         this.inputList = inputList;
     }
 
+    private boolean isAnagram(String word1, String word2){
+        char[] word1_array = word1.toCharArray();
+        Arrays.sort(word1_array);
+        String sortedWord1 = new String(word1_array);
+
+        char[] word2_array = word2.toCharArray();
+        Arrays.sort(word2_array);
+        String sortedWord2 = new String(word2_array);
+
+        return sortedWord1.equals(sortedWord2);
+    }
+
     public void find_anagrams(){
         //For each word in inputlist, check for all anagrams and add them to outputlist by length
         for(String word : inputList){
-            char[] inWord = word.toCharArray();
-            Arrays.sort(inWord);
-            String sortedInWord = new String(inWord);
-
-            //Check whether the a anagram list with length same as word exists, if so, add word to that list
-            boolean haveLengthList = false;
-            for(anagramList aL : outputList){
-                if(aL.getLength() == sortedInWord.length()){
-                    aL.addAnagram(word);
-                    haveLengthList = true;
-                }
-            }
-            if (haveLengthList == false){
-                ArrayList<String> anagrams = new ArrayList<>();
-                outputList.add(new anagramList(word, anagrams));
-            }
 
             for(String word2 : inputList){
                 if(word.equals(word2)){
                     continue;
                 }
-                if(word.length() == word2.length()){
-                    char[] outWord = word2.toCharArray();
-                    Arrays.sort(outWord);
-                    if(sortedInWord.equals(outWord)){
-                        for(anagramList aL : outputList){
-                            if(aL.getLength() == sortedInWord.length()){
-                                aL.addAnagram(word2);
-                            }
-                        }
-                    }
+                if(isAnagram(word, word2)){
+                    System.out.println(word + " " + word2);
                 }
             }
-        }
-        for(anagramList aL : outputList){
-            System.out.println("Length: " + aL.getLength() + " Anagram List: " + aL.getAnagrams());
         }
     }
 
