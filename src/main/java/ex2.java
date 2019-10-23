@@ -3,7 +3,6 @@ import java.util.*;
 public class ex2 {
 
     private ArrayList<String> inputList = new ArrayList<String>(Arrays.asList());
-    private ArrayList<anagramList> outputList = new ArrayList<>();
 
 
     public ex2(ArrayList<String> inputList){
